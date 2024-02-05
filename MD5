@@ -1,6 +1,6 @@
-facb760ea29ba3a4aed9e0574b6ae46e *DESCRIPTION
+4cf877605ce255796809ec4c46378044 *DESCRIPTION
 1f8a222498f6a79bcd15fb74d3146a91 *NAMESPACE
-92b2f802c8b8604031481561453d778a *NEWS.md
+af7ef6eadff9cd6977eca24cecabe989 *NEWS.md
 c3fe9682fcb944edaed593f6db83edaa *R/change_column_types.R
 674cdbe7fa72f83238deb5e249fb041f *R/create_alter_attr.R
 2e1cf924f08d23fcaa349967455fc2a3 *R/create_edgelist.R
@@ -18,7 +18,9 @@ fc71534ce723717c5eab02f62abec0f0 *R/translate.R
 0bea523401793918ca54a3abffe69ed1 *R/utils.R
 2ad07373301a263a507a4b00d5318693 *R/var_labels_lookup.R
 cca82e5564f8af5f311e6e6aca787d45 *R/var_types.R
-8b1a4ddbef3998cfa8253ae946832cb4 *README.md
+62bca60250a08e39e230b5ea49e63739 *R/zzz.R
+5b79dbb4d9e017aec203a6e55e18d3e2 *README.md
+059f2b9ee63940b2e15ab28a0506adcb *inst/CITATION
 b5eb20d4d864899736b4b2d6cf930cec *man/change_column_types.Rd
 51f64edbdd7117c8df56132eca214b0f *man/create_alter_attr.Rd
 25c914db6d45a52f5f4dc59a60a00d54 *man/create_edgelist.Rd

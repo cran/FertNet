@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/FertNet)](https://CRAN.R-project.org/package=FertNet)
 [![R-CMD-check](https://github.com/gertstulp/FertNet/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gertstulp/FertNet/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
@@ -13,7 +15,7 @@ the **Social Networks and Fertility Data**, with a special focus on the
 network data. The data was collected through the LISS (Longitudinal
 Internet studies for the Social Sciences) panel, and can be downloaded
 from <https://www.dataarchive.lissdata.nl/study_units/view/1377>. The
-data is free, but requires registration.
+data is freely available, but requires registration.
 
 The aim of the **Social Networks and Fertility Data** was to collect
 personal network data from a representative sample of Dutch women. 758
@@ -45,7 +47,7 @@ You can install the development version of FertNet like so:
 
 ``` r
 if (!require("remotes")) install.packages("remotes")
-devtools::install_github("gertstulp/FertNet")
+remotes::install_github("gertstulp/FertNet")
 ```
 
 ## Example
@@ -55,6 +57,8 @@ to have `wj18a_EN_1.0p.sav` downloaded and in your working directory\]*
 
 ``` r
 library(FertNet)
+#> When you use this package in your work, please cite:
+#> Stulp, G. (2023). Describing the Dutch Social Networks and Fertility Study and how to process it. Demographic Research 49(19), 493-512. https://www.demographic-research.org/articles/volume/49/19
 data <- produce_data()
 ```
 
@@ -83,7 +87,7 @@ The package also allows you to:
     need to download the SPSS-version of the background data from
     February 2018, named `avars_201802_EN_1.0p.sav` from
     [HERE](https://www.dataarchive.lissdata.nl/study_units/view/322).
-    The data is free, but requires registration.
+    The data is freely available, but requires registration.
 
 The below code is therefore probably what most researchers are after.
 
@@ -110,17 +114,46 @@ ggraph(data$tidygraph[[13]], layout = "kk") +
 
 The `produce_data` function comes with one additional argument that
 allows you to keep the variables on the time it took respondents to
-answer eachcquestion. This information is probably less relevant to most
+answer each question. This information is probably less relevant to most
 researchers, which is why it defaults to being excluded.
 
 ``` r
 data <- produce_data(remove_timing_vars = TRUE)
 ```
 
-## Useful resources on the study
+### Some further details on what the package does
 
-- Stulp, G. (2020), “Methods and Materials of the Social networks and
-  fertility survey (Sociale relaties en kinderkeuzes)”,
+`FertNet` corrects data entry errors or errors that respondents
+themselves mentioned in the comments. For more information, please see
+the file `fix_errors.R` and Stulp (2020) \[reference below\]. This
+package also categorises the outcomes on the 25 variables that describe
+the respondent’s relation to the 25 individuals in the network (e.g.,
+partner, parent, sibling, known from high school). This also includes
+processing the ‘qualitative’ data recorded via open text boxes (which
+occurred 1,159 times). See Buijs and Stulp (2022) \[reference below\]
+for further details.
+
+## Codebook
+
+The codebook of the dataset resulting from using this package can be
+found here:
+
+Stulp, G. (2023). Materials for Describing the Dutch Social Networks and
+Fertility Study and How to Process it.
+<https://doi.org/10.34894/4GG6SH>, DataverseNL, V1
+
+## Citation
+
+When using this package, please cite:
+
+Stulp, G. (2023). Describing the Dutch Social Networks and Fertility
+Study and how to process it. Demographic Research 49(19), 493-512.
+doi.org/10.4054/DemRes.2023.49.19.
+
+## Other useful resources on the study
+
+- Stulp, G. (2020). Methods and Materials of the Social networks and
+  fertility survey (Sociale relaties en kinderkeuzes),
   <https://doi.org/10.34894/EZCDOA>, DataverseNL, V3
 
 - Stulp, G. (2021). Collecting large personal networks in a
@@ -138,3 +171,8 @@ data <- produce_data(remove_timing_vars = TRUE)
 - Stulp, G & Barrett, L. (2021). Do data from large personal networks
   support cultural evolutionary ideas about kin and fertility? Social
   Sciences 10, 177. <https://doi.org/10.3390/socsci10050177>.
+
+- Stulp, G., Top, L., Xu, X., & Sivak, E. (2023). A data-driven approach
+  shows that individuals’ characteristics are more important than their
+  networks in predicting fertility preferences. Royal Society Open
+  Science 10(12), 230988. doi.org/10.1098/rsos.230988.
